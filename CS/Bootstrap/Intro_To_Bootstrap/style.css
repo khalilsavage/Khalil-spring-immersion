@@ -1,0 +1,16 @@
+body {
+    background-color: powderblue;
+  }
+  
+h1 {
+    color: #999;
+}
+
+p {
+    color: white;
+}
+
+.button-style {
+    color: orange;
+    border-radius: 30px;
+}
