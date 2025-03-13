@@ -1,4 +1,4 @@
-# Lesson Plan: [Devloping Business Idea]
+# Lesson Plan: [Developing Business Idea]
 Developing Your Business Idea | Day 1
 
 ## **Duration:**
