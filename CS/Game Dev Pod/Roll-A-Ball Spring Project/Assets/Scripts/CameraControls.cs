@@ -14,12 +14,12 @@ public class CameraControls : MonoBehaviour
 
     // 1. Declare a public variable of type GameObject named 'target'; We will assign it a value in the Unity Editor. 
     // This variable stores a GameObject we will make the camera follow
-    // YOUR CODE HERE
+    public GameObject target;
 
     // 2. Declare a private variable of type Vector3 named 'positionOffset'; We will assign it a value in the Start() method.
     // This variable stores a Vector3(x, y, z) we will use to determine how far the camera is from its target when following it.
     // A Serialized Field keeps a field/variable private while still allowing it to be modified in the Unity Editor
-    [SerializeField] // YOUR CODE HERE
+    [SerializeField] private Vector3 posOffset;
     #endregion
 
     // Start() is a built-in Unity function/method called before the first frame update of the game
@@ -28,7 +28,7 @@ public class CameraControls : MonoBehaviour
         // 3. Assign the 'positionOffset' variable a value: this camera's position - target position
         // (HINT: which component is responsible for a GameObject's position?) 
         // This line of code calculates the difference in position between the camera and its target, then stores that value in the 'positionOffset' var
-        // YOUR CODE HERE
+        posOffset = transform.position - target.transform.position; 
     }
 
     // LateUpdate() is exactly like Update(), only it is called immediately after; Great for camera movement, animations, or physics-realted calculations
@@ -38,7 +38,11 @@ public class CameraControls : MonoBehaviour
         // This if statement checks if the camera has a target assigned to it or not, and only executes the following code if it does 
         // (Hint: Don't forget to create {} brackets after the head of the if statement; )
         // (HINT: The "does not equal" operator is !=)
-        // YOU CODE HERE
+        if (target != null)
+        {
+            Vector3 newPos = target.transform.position + posOffset;
+            transform.position = newPos;
+        }
 
             // 5. Declare a local variable of type Vector3 named 'newPosition'; assign it the value: target's position + 'positionOffset'
             // This line of code calculates the camera's new position based on its target's position and the set position offset.
